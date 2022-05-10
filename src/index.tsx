@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {TodoProvider} from "./context/todo/TodoContext";
+import { TodoProvider } from './context/todo/context';
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <React.StrictMode>
-        <TodoProvider>
-            <App/>
-        </TodoProvider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <TodoProvider>
+      <App />
+    </TodoProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

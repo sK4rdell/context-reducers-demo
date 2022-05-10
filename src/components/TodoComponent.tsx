@@ -1,24 +1,41 @@
-import React from "react";
-import {Todo} from "../typings";
-import styled from "styled-components";
+import React from 'react';
+import { Todo } from '../typings';
+import styled from 'styled-components';
+import { useTodos } from '../context/todo';
+
+interface Props {
+  done: boolean;
+}
 
 const TodoContainer = styled.div`
-    background: #ffffff;
-    border: 4px solid #000000;
-    padding: 2rem;
-    margin-top: 1rem;
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    input[type="checkbox"]  {
-        height: 3rem;
-    }
+  background: ${(props: Props) => (props.done ? '#eaeaea' : '#ffffff')};
+  border: 2px solid #000000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const TodoComponent: React.FC<Todo> = ({task}) => (
-    <TodoContainer>
-        <h1>{task}</h1>
-        <input type="checkbox" checked/>
+export const TodoComponent: React.FC<Todo> = ({ task, completed, id }) => {
+  const { dispatch } = useTodos();
+
+  const handleCheckBoxClicked = () => {
+    dispatch({ type: 'TOGGLE', payload: { id } });
+  };
+
+  const onDeleteClick = () => {
+    dispatch({ type: 'DELETE', payload: { id } });
+  };
+
+  return (
+    <TodoContainer done={completed}>
+      <p> {task}</p>
+      <div>
+        <button onClick={onDeleteClick}>Delete</button>
+        <input type="checkbox" checked={completed} onChange={handleCheckBoxClicked} />
+      </div>
     </TodoContainer>
-)
+  );
+};
