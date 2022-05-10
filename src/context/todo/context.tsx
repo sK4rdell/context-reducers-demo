@@ -26,4 +26,4 @@ export const TodoProvider: React.FC<Props> = ({ children }) => {
   return <TodoContext.Provider value={{ todos: state, dispatch }}>{children}</TodoContext.Provider>;
 };
 
-export const useTodos = () => useContext(TodoContext);
+export const useTodos = (): TodoContextI => useContext(TodoContext);
