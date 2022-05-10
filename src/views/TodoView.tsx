@@ -1,8 +1,8 @@
-import { TodoComponent } from '../components/TodoComponent';
+import {TodoComponent, TodoForm} from '../components';
 import React from 'react';
 import styled from 'styled-components';
-import { useTodos } from '../context/todo/context';
-import { TodoForm } from '../components/TodoForm';
+import { useTodos } from '../context/todo/';
+
 
 const Container = styled.div`
   display: flex;
