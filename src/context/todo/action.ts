@@ -1,4 +1,4 @@
-import { Todo, Action } from '../../typings';
+import { Action, Todo } from '~typings';
 
 export type TodoAction =
   | Action<'ADD', Todo>
