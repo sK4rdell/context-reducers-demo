@@ -25,7 +25,7 @@ export const TodoComponent: React.FC<Todo> = ({ task, completed, id }) => {
     dispatch({ type: 'TOGGLE', payload: { id } });
   };
 
-  const onDeleteClick = (): void => {
+  const handleDeleteClicked = (): void => {
     dispatch({ type: 'DELETE', payload: { id } });
   };
 
@@ -33,7 +33,7 @@ export const TodoComponent: React.FC<Todo> = ({ task, completed, id }) => {
     <TodoContainer done={completed}>
       <p>{task}</p>
       <div>
-        <button onClick={onDeleteClick}>Delete</button>
+        <button onClick={handleDeleteClicked}>Delete</button>
         <input type="checkbox" checked={completed} onChange={handleCheckBoxClicked} />
       </div>
     </TodoContainer>

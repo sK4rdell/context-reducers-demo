@@ -8,7 +8,7 @@ export const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
     case 'TOGGLE':
       return state.map((todo) => {
         if (todo.id !== action.payload.id) {
-          return { ...todo };
+          return todo;
         }
         return { ...todo, completed: !todo.completed };
       });

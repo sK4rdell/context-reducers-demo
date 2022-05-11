@@ -14,7 +14,7 @@ export const TodoForm: React.FC = () => {
   const [state, setState] = useState('');
   const { dispatch } = useTodos();
 
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setState(e.target.value);
   };
 
@@ -25,7 +25,7 @@ export const TodoForm: React.FC = () => {
 
   return (
     <Container>
-      <input type="text" value={state} onChange={onInputChange} />
+      <input type="text" value={state} onChange={handleInputChange} />
       <button disabled={!state} onClick={handleSubmit}>
         Add
       </button>
